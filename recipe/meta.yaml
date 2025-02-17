@@ -1,6 +1,6 @@
 {% set name = "felyxcontribs-metrics-base" %}
 {% set version = "1.0.3" %}
-
+{% set python_min = "3.9.21" %}
 
 package:
   name: {{ name|lower }}
