@@ -1,5 +1,6 @@
 {% set name = "felyxcontribs-metrics-base" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.3" %}
+
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://gitlab.ifremer.fr/felyx/felyxcontribs_metrics_base/-/archive/{{ version }}/felyxcontribs_metrics_base-{{ version }}.tar.gz
-  sha256: 6009c820fd5996724efd168b673cd298f86edbdf2d65667d9ee9d3a933936f5e
+  sha256: bd3a2da174eaafb20ea1ca632b4ae03406f2ccb0564d
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -39,4 +40,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - erwanbodere
+    - cso2943
+    - criou-cg
     - marie59
