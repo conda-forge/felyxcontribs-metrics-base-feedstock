@@ -1,5 +1,6 @@
 {% set name = "felyxcontribs-metrics-base" %}
 {% set version = "1.0.3" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,25 +8,27 @@ package:
 
 source:
   url: https://gitlab.ifremer.fr/felyx/felyxcontribs_metrics_base/-/archive/{{ version }}/felyxcontribs_metrics_base-{{ version }}.tar.gz
-  sha256: bd3a2da174eaafb20ea1ca632b4ae03406f2ccb0564d
+  sha256: 0c6782c8110e9d1bce12a94c8befeb466cc096f9d331f3b5729e335a0dbc67ff
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - poetry-core
     - poetry-dynamic-versioning
 
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - virtualenv >=20.13.3,<20.14
     
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - felyxcontribs_metrics_base
 
