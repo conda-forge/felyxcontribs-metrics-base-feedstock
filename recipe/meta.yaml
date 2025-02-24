@@ -1,5 +1,6 @@
 {% set name = "felyxcontribs-metrics-base" %}
 {% set version = "1.0.3" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -16,16 +17,18 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python >={{ python_min }}
     - pip
     - poetry-core
     - poetry-dynamic-versioning
 
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - virtualenv >=20.13.3,<20.14
     
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - felyxcontribs_metrics_base
 
